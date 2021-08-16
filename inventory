@@ -66,3 +66,21 @@ ansible_python_interpreter=/usr/bin/python3
 #ansible_password=P@$$w0rd
 #ansible_connection=winrm
 #ansible_winrm_server_cert_validation=ignore
+
+
+#these variables set the name of the package based on the distro
+[CentOSDns:vars]
+apache_package=httpd 
+php_package=php
+
+[BlueServer:vars]
+apache_package=apache2
+php_package=libapache2-mod-php
+[RedAttacker:vars]
+apache_package=apache2
+php_package=libapache2-mod-php
+
+[RedBots:vars]
+apache_package=apache2
+php_package=libapache2-mod-php
+

@@ -7,8 +7,15 @@
   - name: update repository index 
     apt: 
       update_cache: yes
-#only installs apache if the distro is CentOS or debian
-    when: ansible_distribution in ["CentOS", "Debian"]
+#only installs apache if the distro is Ubuntu or debian
+    when: ansible_distribution in ["Ubuntu", "Debian"]
+
+  - name: update repository index
+    dnf:
+      update_cache: yes
+#only installs apache if the distro is CentOS
+    when: ansible_distribution in ["CentOS" ]
+
 
   - name: install apache2 package Debian
     apt:

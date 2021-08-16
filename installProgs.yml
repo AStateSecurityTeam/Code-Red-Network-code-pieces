@@ -1,0 +1,53 @@
+---
+- hosts: BlueServer
+  become: true
+  tasks:
+
+  - name: install web based packages to BlueTeam server
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+        - mariadb-server
+      state: latest
+   
+
+- hosts: 
+    RedAttacker
+    RedBots
+  become: true
+  tasks:
+
+  - name: add kali repos to Red team machines
+    shell: sh -c "echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /etc/apt/sources.list.d/kali.list"
+
+  - name: install kali repos to Red team machines
+    apt:
+      name: gnupg
+
+  - name: verify kali repo public keys of Red team machines
+    shell: wget 'https://archive.kali.org/archive-key.asc'; apt-key add archive-key.asc 
+
+  - name: update with new packages for Red team Machines
+    shell: apt update
+
+  - name: set repo priority below standard debian packages for Red team Machines
+    shell: "echo 'Package: *' > /etc/apt/preferences.d/kali.pref; echo 'Pin: release a=kali-rolling' >> /etc/apt/preferences.d/kali.pref; echo 'Pin-Priority: 50' >> /etc/apt/preferences.d/kali.pref"
+
+  - name: update packages with new priority for Red Team Machines
+    shell: apt update
+
+  - name: install aptitude for kali packages
+    apt:
+      name: aptitude
+      state: latest
+
+  - name: set installation of kali packages to be non interactive and use default options
+    command: export DEBIAN_FRONTEND=noninteractive
+
+  - name: install metasploit onto RedTeam machines
+    shell: aptitude install -t kali-rolling metasploit-framework -y
+
+      
+
+
