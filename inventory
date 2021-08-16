@@ -44,6 +44,9 @@
 #[BlueWindows]
 #192.168.1.11
 
+[CentOSDns]
+192.168.1.3
+
 [BlueServer]
 192.168.1.12
 
