@@ -3,13 +3,14 @@
   become: true
   tasks:
 
-  - name: install web based packages to BlueTeam server
+  - name: install web based packages and ftp server to BlueTeam server
     tags: Blue,level1
     apt:
       name: 
         - apache2
         - libapache2-mod-php
         - mariadb-server
+        - vsftpd
       state: latest
     
   - name: copy default html file to BlueServer
@@ -20,6 +21,17 @@
       owner: root
       group: root
       mode: 0644
+
+- hosts: ShortStoryDesktops
+  tags: SS,Desktop
+  
+  - name: install kde-desktop chromium and konsole to Short Stories desktop
+    apt:
+      name:
+      - task-kde-desktop
+      - chromium
+      - konsole
+   
 
 - hosts: 
     RedAttacker
