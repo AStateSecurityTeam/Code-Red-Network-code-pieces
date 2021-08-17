@@ -19,4 +19,5 @@ all machines must have specified IP's or have inventory file updated for those m
 IF YOU CHANGE IPS OF MACHINES
 update inventory file and ./configs/red_inventory with new addresses
 
-currently install_progs_old requires all future package installs to use "aptiutude install -t kali-rolling <packageName>"
+currently install_progs_old requires all future package installs to use "aptiutude install -t kali-rolling
+ <PackageName>"
