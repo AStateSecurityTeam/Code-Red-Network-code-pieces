@@ -24,19 +24,43 @@
 
 - hosts: ShortStoryDesktops
   tags: SS,Desktop
-  
+  tasks:
+
   - name: install kde-desktop chromium and konsole to Short Stories desktop
     apt:
       name:
       - task-kde-desktop
       - chromium
       - konsole
+      state: latest
   - name: enable desktop on startup
     service:
       name: sddm
       state: started
-      enabled: yes:
+      enabled: yes
+
+- hosts: ShortStorySecureServer
+  tags: SS,SecureServer
+  become: true
+  tasks:
+
+  - name: install apache2, SSL, and other components to secure server
+    apt:
+      name:
+      - apache2
+      - openssl
+      state: latest
         
+- hosts: RedBots
+  tags: SS,Red
+  become: true
+  tasks:
+
+  - name: install specific packages to redbots
+    apt: 
+      name: " {{ RedBotPackage }}"
+    state: latest
+
 
 - hosts: 
     RedAttacker

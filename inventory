@@ -52,14 +52,17 @@
 192.168.1.21
 
 [RedBots]
-192.168.1.22
-192.168.1.23
-192.168.1.24
+192.168.1.22 redBotPackage=chromium
+192.168.1.23 redBotPackage=wireshark-qt
+192.168.1.24 redBotPackage=openvpn
 
 [ShortStoryDesktops]
 192.168.1.81
 192.168.1.82
 192.168.1.83
+
+[ShortStorySecureServer]
+192.168.1.99
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
