@@ -51,15 +51,39 @@
       - openssl
       state: latest
         
-- hosts: RedBots
-  tags: SS,Red
+- hosts: LeakedPasswords
+  tags: SS,Red,http
   become: true
   tasks:
 
-  - name: install specific packages to redbots
-    apt: 
-      name: " {{ RedBotPackage }}"
-    state: latest
+  - name: install apache2, php, and aptitude to leaked password red bot
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+        - aptitude
+      state: latest
+
+  - name: copy website files to LeakedPasswords red bot
+    copy:
+      src: configs/bad_login.php
+      dest: /var/www/html/bad_login.php
+      owner: root
+      group: root
+      mode: 0777      
+  - name: copy over other website files to LeakdPasswords red bot
+    copy:
+      src: configs/bad_home.html
+      dest: /var/www/html/bad_home.html
+      owner: root
+      group: root
+      mode: 0777
+      
+
+#  - name: install mysql database
+#    shell: export DEBIAN_FRONTEND=noninteractive; wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb; dpkg -i mysql-appt-config-_0.8.13-1_all.deb ; sudo apt update; aptitude install mysql-server -y;
+
+      
 
 
 - hosts: 
