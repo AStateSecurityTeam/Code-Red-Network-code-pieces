@@ -24,6 +24,8 @@ Secure Server, RedBot2, and the http vs https desktop must be connected to each 
 
 IF YOU CHANGE IPS OF MACHINES
 update inventory file and ./configs/red_inventory with new addresses
+addresses will alos have to be updated in assopciated html files. (TBD)
+
 
 currently install_progs_old requires all future package installs to use "aptiutude install -t kali-rolling
  [PackageName]"

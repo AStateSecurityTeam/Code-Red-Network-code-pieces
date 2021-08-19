@@ -78,7 +78,11 @@
       owner: root
       group: root
       mode: 0777
-      
+
+  - name: install termshark to httpVHtpps red bot
+    apt:
+      name: termshark
+    state: latest
 
 #  - name: install mysql database
 #    shell: export DEBIAN_FRONTEND=noninteractive; wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb; dpkg -i mysql-appt-config-_0.8.13-1_all.deb ; sudo apt update; aptitude install mysql-server -y;
