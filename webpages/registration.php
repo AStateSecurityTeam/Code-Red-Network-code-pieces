@@ -1,3 +1,6 @@
+<?php
+require_once('config.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +11,22 @@
 <body>
 	<div>
 		<?php
-			if(isset($_POST['create'])){
-				$username = $_POST['username'];
+/*
+                        if(isset($_POST['create'])){
+
+                                $username = $_POST['username'];
                                 $password = $_POST['password'];
 
-				echo $username , " " , $password;
-			}
+                                $sql = "INSERT INTO users (username, password) VALUES(?,?)";
+                                $stmtinsert = $db->prepare($sql);
+                                $result = $stmtinsert->execute([$usernmame, $password]);
+                                if($result){
+                                        echo 'Successfully saved';
+                                }else{
+                                        echo 'There were errors while saving your data.';
+                        }
+*/
+		
 		?>
 	</div>
 
