@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN</title>
+	<title>SIMPLE JOE'S LOGIN</title>
 </head>
 
 <body>
+	<center>
 	<div id="main">
-		<h1>SIMPLE LOGIN</h1>
-		<form method="POST">
+		<h1>SIMPLE JOE'S LOGIN</h1>
+		<p> Please fill out this form to register your account</p>
+		<form action="leaked_database.php" method="POST">
 			Username <input type="text" name="username" class="text" autocomplete="off"
 			required>
 			Password <input type="password" name="password" class="text" required>
 			<input type="Submit" name="submit" id="sub">
 		</form>
 	</div>
+	</center>
 </body>
 
 </html>
 
 <?php
-	if(isset($_POST['submit'])){
-		$un=$_POST['username'];
-		$pw=$_POST['password'];
 
-		echo "I hope you didn't put anything important in there...";
-		sleep(2);
+	if(isset($_POST['submit'])){
+
+		echo ' <a href=\\leaked_database.php>I hope you did not put anything important in there...</a>';
+
 		echo '<script type="text/javascript">';
-		echo ' alert("Database intrusion detected")';
+		echo ' alert("Password Database intrusion detected")';
 		echo '</script>';
-		sleep(2);
-		header("location:bad_database.php");
-		exit();
 	}
+
 ?>
